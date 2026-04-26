@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Pagall</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
+        
+        body {
+            background-color: #ffeef2;
+            background-image: radial-gradient(#ffc2d1 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            border-radius: 30px;
+            padding: 35px;
+            width: 85%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+            text-align: center;
+            position: relative;
+            border: 4px dashed #ff85a1;
+            /* Smooth fade transition between steps */
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; color: #ff4d6d; font-size: 2.2rem; margin: 10px 0; }
+        p { color: #590d22; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px; }
+        
+        .btn-cute {
+            background: #ff758f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 117, 143, 0.4);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-cute:hover { background: #ff4d6d; transform: scale(1.05); }
+        
+        .bounce { animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        #noBtn { background: #ccc; margin-left: 10px; }
+        
+        .floating-emoji {
+            position: absolute;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatUp 4s linear forwards;
+        }
+        @keyframes floatUp {
+            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .highlight { color: #ff4d6d; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="start-div" style="text-align:center">
+        <div style="font-size: 6rem; cursor:pointer" class="bounce" onclick="showStep('step1')">🎁</div>
+        <h2 style="color:#ff4d6d">Ishmeet Tere liye ek message hai...</h2>
+        <p style="color:#6d5d54">(Tap karo aur janne ko)</p>
+    </div>
+
+    <div id="step1" class="card" style="display:none">
+        <h1>Hi Ishmeet!</h1>
+        <p>MEREKO APKO KUCH BOLNA THA BHOT DINO SE...</p>
+        <button class="btn-cute" onclick="showStep('step2')">Next ✨</button>
+    </div>
+
+    <div id="step2" class="card" style="display:none">
+        <h1>Actually...</h1>
+        <p>Dekho mereko samajh nhi aaraha kaha se shuru karu lekin, mereko pata nhi kese dheere dheere mein tujhe pasand krne laga.</p>
+        <p><span class="highlight">*Tere call aate tab ek excitement sa hota tha, like mein acchnak khush hota hu*</span> aur jab bhi mein tereko dekta hu my mood changes and i feel happy.</p>
+        <button class="btn-cute" onclick="showStep('step3')">Keep reading... 📖</button>
+    </div>
+
+    <div id="step3" class="card" style="display:none">
+        <h1>I'll be there...</h1>
+        <p>Mereko pata hai ki tere past relation ki waje se trauma hai but mein try karunga ki mein usko overcome karu. I would be with u whenever u needed me.</p>
+        <p>And biggest thing is that ki <span class="highlight">app mujhe samajhte ho. I love being with you and spending time with you i love every moment being with you and I love taking care of you.</span> </p>
+        <button class="btn-cute" onclick="showStep('step4')">One more thing... ❤️</button>
+    </div>
+
+    <div id="step4" class="card" style="display:none">
+        <h1>The Little Things</h1>
+        <p>Ye itne din I was trying to know u... especially that word <span class="highlight">"AYY PAGALL"</span> jo tu accent mein bolti hai aur.</p>
+        <p> teri wo hassii <span class="highlight">*heeheeeheee*</span> sunne se ek satisfaction sa feel hota. It makes my day.</p>
+        <button class="btn-cute" onclick="showStep('final-question')">The big question ❓</button>
+    </div>
+
+    <div id="final-question" class="card" style="display:none">
+        <h1>Finally...</h1>
+        <p>Mereko pata hai mein bhot bada risk le raha hu, apni dosti toot sakti hai...,ya tu mereko avoid bhi kr sakti hai ya use bhi worst ho sakta. Mereko darr hai tereko khone ka.</p>
+        <h2 style="font-family:'Dancing Script'; color:#ff4d6d; font-size: 2rem;">Will you date me?</h2>
+        
+        <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+            <button class="btn-cute" onclick="celebrate()">YES! ❤️</button>
+            <button class="btn-cute" id="noBtn" onmouseover="moveNo()">No</button>
+        </div>
+    </div>
+
+    <div id="celebration" class="card" style="display:none">
+        <h1>YAAAY! 🤗</h1>
+        <p>I Promise I will be there for you Forever!</p>
+        <div style="font-size: 4rem">💖✨🌹</div>
+        <p style="font-style: italic; margin-top: 20px;">— [Martin]</p>
+    </div>
+
+    <script>
+        function showStep(stepId) {
+            // Hide all cards and divs
+            document.getElementById('start-div').style.display = 'none';
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => card.style.display = 'none');
+            
+            // Show the specific step
+            document.getElementById(stepId).style.display = 'block';
+        }
+
+        function celebrate() {
+            showStep('celebration');
+            setInterval(spawnEmoji, 200);
+        }
+
+        function moveNo() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function spawnEmoji() {
+            const emojis = ['❤️', '💖', '✨', '🌸', '🌹', '🥰', '🧸'];
+            const div = document.createElement('div');
+            div.className = 'floating-emoji';
+            div.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.top = '100vh';
+            document.body.appendChild(div);
+            setTimeout(() => { div.remove(); }, 4000);
+        }
+    </script>
+</body>
+</html>
